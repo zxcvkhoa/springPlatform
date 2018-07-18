@@ -19,7 +19,7 @@
         <form:form action="/addLicense" method="post" modelAttribute="license" enctype="multipart/form-data">
         <div class="form-group">
 			<label for="person">Person:</label>
-			<select name="person">
+			<select name="person" >
 			<c:forEach items="${people}" var="person">
 				<option value="${person.id}">${person.firstName} ${person.lastName}</option>
 			</c:forEach>

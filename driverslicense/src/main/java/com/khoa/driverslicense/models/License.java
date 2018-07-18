@@ -15,11 +15,12 @@ import javax.persistence.Table;
 @Entity 
 @Table(name="licenses")
 public class License {
-
+	private static long counter = 000001;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int number;
+	private long number;
 	private Date expiration_date;
 	private String state;
 	@Column(updatable=false)
@@ -29,30 +30,18 @@ public class License {
 	@JoinColumn(name="person_id")
 	private Person person;
 	
-	public static int licenseNumber = 000001;
 	
-	
-	public static int getLicenseNumber() {
-		return licenseNumber;
+	public long getNumber() {
+		return number;
 	}
 
-	public static void setLicenseNumber(int licenseNumber) {
-		License.licenseNumber = licenseNumber;
-	}
-
-	public License(Long id, Date expiration_date, String state, Date createdAt, Date updatedAt, Person person) {
-		super();
-		this.id = id;
-		this.number = licenseNumber++;
-		this.expiration_date = expiration_date;
-		this.state = state;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-		this.person = person;
+	public void setNumber(long number) {
+		this.number = number;
 	}
 
 	public License() {
-		number++;
+		counter++;
+		this.number = counter;
 	}
 
 	public Long getId() {

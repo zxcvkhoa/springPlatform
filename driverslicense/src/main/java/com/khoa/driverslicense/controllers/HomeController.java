@@ -27,7 +27,9 @@ public class HomeController {
     }
 	
 	@RequestMapping("/")
-	public String index() {
+	public String index(Model model) {
+		List<License> licenses = licenseService.readAll();
+		model.addAttribute("licenses", licenses);
 		return "landing.jsp";
 	}
 	

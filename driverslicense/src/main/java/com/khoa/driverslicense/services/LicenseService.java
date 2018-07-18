@@ -1,5 +1,7 @@
 package com.khoa.driverslicense.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.khoa.driverslicense.models.License;
@@ -24,6 +26,10 @@ public class LicenseService {
 	
 	public void deleteLicense(long id) {	
 		licenseRepo.deleteById(id);
+	}
+	
+	public List<License> readAll(){
+		return (List<License>) licenseRepo.findAll();
 	}
 	
 }

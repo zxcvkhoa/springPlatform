@@ -16,5 +16,31 @@
 	<br>
 	<a href="/persons/new"><button class="btn btn-primary btn-lg">Create Person</button></a><br><br>
 	<a href="/license/new"><button class="btn btn-primary btn-lg">Create License</button></a>
+	
+	<div>
+		<h3>Licenses</h3>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>License #</th>
+						<th>State</th>
+						<th>Expiration Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${licenses}" var="license">
+					<tr>
+						<td><c:out value="${license.person.firstName}"/></td>
+						<td><c:out value="${license.person.lastName}"/></td>
+						<td><c:out value="${license.number}"/></td>
+						<td><c:out value="${license.state}"/></td>
+						<td><c:out value="${license.expiration_date}"/></td>
+					</tr>
+					</c:forEach>
+				</tbody>
+					</table>
+				</div>
 </body>
 </html>
